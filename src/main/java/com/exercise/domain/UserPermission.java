@@ -15,8 +15,8 @@ public class UserPermission implements Serializable {
     @EmbeddedId
     private PermissionId id;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "USER_ID", insertable = false, updatable = false)
+    @ManyToOne(fetch=FetchType.LAZY)
+    @JoinColumn(name="USER_ID", insertable = false, updatable = false)
     private User user;
 
     public UserPermission() {
@@ -29,6 +29,14 @@ public class UserPermission implements Serializable {
 
     public void setId(PermissionId id) {
         this.id = id;
+    }
+
+    public Long getUserId() {
+        return id.getUserId();
+    }
+
+    public void setUserId(Long userId) {
+        this.id.setUserId(userId);
     }
 
     public Permission getPermission() {

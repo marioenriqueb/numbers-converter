@@ -2,8 +2,7 @@ package com.exercise.domain;
 
 import com.exercise.domain.enumeration.Permission;
 
-import javax.persistence.Column;
-import javax.persistence.Embeddable;
+import javax.persistence.*;
 import java.io.Serializable;
 
 /**
