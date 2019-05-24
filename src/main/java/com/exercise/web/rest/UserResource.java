@@ -8,6 +8,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.annotation.Secured;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -25,6 +26,7 @@ public class UserResource {
     private UserService service;
 
     @GetMapping("/find/{username}")
+    @Secured({ "ROLE_MASTER" })
     public ResponseEntity<UserDto> findByName(String username) throws NumberConvertException {
         log.debug("REST request to find an user : {}", username);
         UserDto usuario = service.findByUserName(username);
@@ -32,6 +34,7 @@ public class UserResource {
     }
 
     @GetMapping("/all")
+    @Secured({ "ROLE_MASTER", "MASTER", "M", "ROLE_M" })
     public ResponseEntity<List<UserDto>> findAll() throws NumberConvertException {
         log.debug("REST request to find all users");
         List<UserDto> usuario = service.findAll();
@@ -39,6 +42,7 @@ public class UserResource {
     }
 
     @PostMapping
+    @Secured({ "ROLE_MASTER" })
     public ResponseEntity<UserDto> create(@RequestBody UserDto dto) throws NumberConvertException {
         log.debug("REST request to create an user : {}", dto);
         UserDto usuario = service.create(dto);
@@ -46,6 +50,7 @@ public class UserResource {
     }
 
     @PutMapping
+    @Secured({ "ROLE_MASTER" })
     public ResponseEntity<UserDto> update(@RequestBody UserDto dto) throws NumberConvertException {
         log.debug("REST request to update an user : {}", dto);
         if (dto.getNombre() != null) {
@@ -57,6 +62,7 @@ public class UserResource {
     }
 
     @DeleteMapping("/{username}")
+    @Secured({ "ROLE_MASTER" })
     public ResponseEntity<UserDto> delete(String username) throws NumberConvertException {
         log.debug("REST request to delete an user : {}", username);
         if (username != null) {

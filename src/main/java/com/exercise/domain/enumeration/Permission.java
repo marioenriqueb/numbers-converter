@@ -9,11 +9,11 @@ import java.util.Arrays;
  * The Permission enumeration.
  */
 public enum Permission {
-    BINARIO("B"),
-    HEXADECIMAL("H"),
-    DECIMAL("D"),
-    ROMANO("R"),
-    MASTER("M");
+    BINARIO("BINARIO"),
+    HEXADECIMAL("HEXADECIMAL"),
+    DECIMAL("DECIMAL"),
+    ROMANO("ROMANO"),
+    MASTER("MASTER");
 
     private String code;
 
@@ -23,7 +23,7 @@ public enum Permission {
 
     @Override
     public String toString() {
-        return name().toLowerCase();
+        return name().toUpperCase();
     }
 
     public static Permission byCode(String code) throws NumberConvertException {

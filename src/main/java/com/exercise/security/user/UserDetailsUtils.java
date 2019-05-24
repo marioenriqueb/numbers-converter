@@ -14,7 +14,7 @@ public class UserDetailsUtils {
         // So, we need to set it to that format, so we can verify and compare roles (i.e. hasRole("ADMIN")).
         List authorities = new ArrayList<>();
         dto.getPermisos().stream().forEach(rol -> {
-            authorities.add(new SimpleGrantedAuthority("ROLE_" + rol));
+            authorities.add(new SimpleGrantedAuthority("ROLE_" + rol.toString()));
         });
 
 
