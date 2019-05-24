@@ -9,6 +9,7 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter;
+import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
 import javax.servlet.FilterChain;
 import javax.servlet.ServletException;
@@ -19,7 +20,7 @@ import java.nio.charset.StandardCharsets;
 import java.util.Base64;
 import java.util.Collections;
 
-public class AuthenticationFilter extends AbstractAuthenticationProcessingFilter {
+public class AuthenticationFilter extends UsernamePasswordAuthenticationFilter {
 
     private AuthenticationManager authManager;
     private UserService userService;
@@ -30,7 +31,6 @@ public class AuthenticationFilter extends AbstractAuthenticationProcessingFilter
      */
     public AuthenticationFilter(AuthenticationManager authManager,
                                 UserService userService) {
-        super("/api");
         this.authManager = authManager;
         this.userService = userService;
     }
@@ -54,7 +54,8 @@ public class AuthenticationFilter extends AbstractAuthenticationProcessingFilter
     public Authentication attemptAuthentication(HttpServletRequest request, HttpServletResponse response) {
         DummyUser creds = readBasicAuthorization(request);
         String username = creds.getUsername();
-        Authentication authToken = new UsernamePasswordAuthenticationToken(username, creds.getPassword(), Collections.EMPTY_LIST);
+        String password = creds.getPassword();
+        Authentication authToken = new UsernamePasswordAuthenticationToken(username, password, Collections.EMPTY_LIST);
         try {
             return authManager.authenticate(authToken);
         } catch (AuthenticationException ex) {

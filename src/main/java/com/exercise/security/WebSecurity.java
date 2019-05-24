@@ -10,8 +10,9 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter;
+import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
-//@EnableWebSecurity
+@EnableWebSecurity
 public class WebSecurity extends WebSecurityConfigurerAdapter {
 
     @Autowired
@@ -30,7 +31,7 @@ public class WebSecurity extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         AuthenticationFilter authenticationFilter = new AuthenticationFilter(authenticationManager(), userService);
 
-        http.addFilterBefore(authenticationFilter, AbstractAuthenticationProcessingFilter.class)
+        http.addFilterBefore(authenticationFilter, UsernamePasswordAuthenticationFilter.class)
                 .csrf().disable().authorizeRequests()
                 .anyRequest().authenticated();
     }

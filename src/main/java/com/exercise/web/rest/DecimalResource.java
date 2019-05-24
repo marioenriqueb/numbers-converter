@@ -1,7 +1,7 @@
 package com.exercise.web.rest;
 
 import com.exercise.exception.NumberConvertException;
-import com.exercise.service.NumberConverterService;
+import com.exercise.service.ConverterService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,18 +16,18 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @RestController
 @RequestMapping("/api/decimal")
-public class DecimalResource implements NumberConverterResoruce {
+public class DecimalResource implements ConverterResource {
 
     private final Logger log = LoggerFactory.getLogger(DecimalResource.class);
     
-    //@Autowired
-    private NumberConverterService service;
+    @Autowired
+    private ConverterService service;
 
     @Override
     @GetMapping("/to/binario")
     public ResponseEntity<String> toBinario(String number) throws NumberConvertException {
         log.debug("REST request to get status");
-        String response = service.toBinario(number);
+        String response = service.decimalToBinario(number);
         return ResponseEntity.status(HttpStatus.CREATED).body(response);
     }
 
@@ -35,7 +35,7 @@ public class DecimalResource implements NumberConverterResoruce {
     @GetMapping("/to/decimal")
     public ResponseEntity<String> toDecimal(String number) throws NumberConvertException {
         log.debug("REST request to get status");
-        String response = service.toDecimal(number);
+        String response = service.decimalToDecimal(number);
         return ResponseEntity.status(HttpStatus.CREATED).body(response);
     }
 
@@ -43,7 +43,7 @@ public class DecimalResource implements NumberConverterResoruce {
     @GetMapping("/to/hexa")
     public ResponseEntity<String> toHexadecimal(String number) throws NumberConvertException {
         log.debug("REST request to get status");
-        String response = service.toHexa(number);
+        String response = service.decimalToHexa(number);
         return ResponseEntity.status(HttpStatus.CREATED).body(response);
     }
 
@@ -51,7 +51,7 @@ public class DecimalResource implements NumberConverterResoruce {
     @GetMapping("/to/romano")
     public ResponseEntity<String> toRomano(String number) throws NumberConvertException {
         log.debug("REST request to get status");
-        String response = service.toRomano(number);
+        String response = service.decimalToRomano(number);
         return ResponseEntity.status(HttpStatus.CREATED).body(response);
     }
 }

@@ -18,7 +18,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import javax.persistence.EntityManagerFactory;
 import javax.sql.DataSource;
 
-@SpringBootApplication(exclude = { SecurityAutoConfiguration.class })
+@SpringBootApplication//(exclude = { SecurityAutoConfiguration.class })
 @EnableJpaRepositories(basePackages = "com.exercise.dao")
 public class Application {
 
