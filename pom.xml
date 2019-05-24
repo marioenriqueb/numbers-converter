@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.exercise</groupId>
-    <artifactId>number-converter</artifactId>
+    <artifactId>numbers-converter</artifactId>
     <version>1.0.2</version>
 
     <properties>

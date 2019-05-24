@@ -27,14 +27,14 @@ public class UserResource {
 
     @GetMapping("/find/{username}")
     @Secured({ "ROLE_MASTER" })
-    public ResponseEntity<UserDto> findByName(String username) throws NumberConvertException {
+    public ResponseEntity<UserDto> findByName(@PathVariable("username") String username) throws NumberConvertException {
         log.debug("REST request to find an user : {}", username);
         UserDto usuario = service.findByUserName(username);
         return ResponseEntity.status(HttpStatus.OK).body(usuario);
     }
 
     @GetMapping("/all")
-    @Secured({ "ROLE_MASTER", "MASTER", "M", "ROLE_M" })
+    @Secured({ "ROLE_MASTER" })
     public ResponseEntity<List<UserDto>> findAll() throws NumberConvertException {
         log.debug("REST request to find all users");
         List<UserDto> usuario = service.findAll();
@@ -63,7 +63,7 @@ public class UserResource {
 
     @DeleteMapping("/{username}")
     @Secured({ "ROLE_MASTER" })
-    public ResponseEntity<UserDto> delete(String username) throws NumberConvertException {
+    public ResponseEntity<UserDto> delete(@PathVariable("username") String username) throws NumberConvertException {
         log.debug("REST request to delete an user : {}", username);
         if (username != null) {
             service.delete(username);
