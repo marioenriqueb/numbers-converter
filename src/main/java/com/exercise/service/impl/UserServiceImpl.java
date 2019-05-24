@@ -67,6 +67,8 @@ public class UserServiceImpl implements UserService {
 			return null;
 		}
 
-		return this.adapter.toDto(usuario);
+		UserDto loginDto = this.adapter.toDto(usuario);
+		loginDto.setPassword(usuario.getPassword());
+		return loginDto;
 	}
 }

@@ -19,7 +19,7 @@ import javax.persistence.EntityManagerFactory;
 import javax.sql.DataSource;
 
 @SpringBootApplication//(exclude = { SecurityAutoConfiguration.class })
-@EnableJpaRepositories(basePackages = "com.exercise.dao")
+@EnableJpaRepositories(basePackages = {"com.exercise.dao", "com.exercise.conf"} )
 public class Application {
 
     public static void main(String... args) {

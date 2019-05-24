@@ -12,7 +12,8 @@ public enum Permission {
     BINARIO("B"),
     HEXADECIMAL("H"),
     DECIMAL("D"),
-    ROMANO("R");
+    ROMANO("R"),
+    MASTER("M");
 
     private String code;
 

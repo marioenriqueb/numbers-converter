@@ -11,7 +11,7 @@ import java.util.List;
  * Created by mario on 25/04/2019.
  */
 @Entity
-@Table(name = "USER")
+@Table(name = "USERS")
 public class User implements Serializable {
 
     @Id
@@ -21,7 +21,7 @@ public class User implements Serializable {
     @Column(name = "PASSWORD")
     private String password;
 
-    @OneToMany(mappedBy = "id.userName", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "id.userName", fetch = FetchType.EAGER, cascade = CascadeType.ALL, orphanRemoval = true)
     private List<UserPermission> permisos = new ArrayList<>();
 
     public String getUserName() {

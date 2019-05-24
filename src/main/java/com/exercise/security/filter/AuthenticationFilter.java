@@ -3,6 +3,7 @@ package com.exercise.security.filter;
 import com.exercise.security.user.DummyUser;
 import com.exercise.service.UserService;
 import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
