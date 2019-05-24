@@ -11,18 +11,18 @@ import java.io.Serializable;
 @Embeddable
 public class PermissionId implements Serializable {
 
-    @Column(name = "USER_ID")
-    private Long userId;
+    @Column(name = "USERNAME")
+    private String userName;
 
     @Column(name = "PERMISSION")
     private Permission permission;
 
-    public Long getUserId() {
-        return userId;
+    public String getUserName() {
+        return userName;
     }
 
-    public void setUserId(Long userId) {
-        this.userId = userId;
+    public void setUserName(String userName) {
+        this.userName = userName;
     }
 
     public Permission getPermission() {

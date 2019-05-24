@@ -22,13 +22,8 @@ public class UserServiceImpl implements UserService {
 	private UserAdapter adapter;
 
 	@Override
-	public UserDto findById(Long userId) {
-		return adapter.toDto(dao.findById(userId).orElse(null));
-	}
-
-	@Override
-	public UserDto findByName(String name) {
-		return adapter.toDto(dao.findByNombre(name).orElse(null));
+	public UserDto findByUserName(String userName) {
+		return adapter.toDto(dao.findById(userName).orElse(null));
 	}
 
 	@Override
@@ -39,10 +34,10 @@ public class UserServiceImpl implements UserService {
 
 	@Override
 	public UserDto update(UserDto dto) {
-		if (dto.getId() != null) {
-			User user = dao.findById(dto.getId()).orElse(null);
+		if (dto.getNombre() != null) {
+			User user = dao.findById(dto.getNombre()).orElse(null);
 			if (user != null) {
-				user.setNombre(dto.getNombre());
+				user.setUserName(dto.getNombre());
 				dao.save(user);
 				return adapter.toDto(user);
 			}
@@ -52,8 +47,8 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
-	public void delete(Long userId) {
-		User user = dao.findById(userId).orElse(null);
+	public void delete(String userName) {
+		User user = dao.findById(userName).orElse(null);
 		if (user != null) {
 			this.dao.delete(user);
 		}
@@ -66,7 +61,7 @@ public class UserServiceImpl implements UserService {
 
 	@Override
 	public UserDto login(String username) {
-		User usuario = dao.findByNombre(username).orElse(null);
+		User usuario = dao.findById(username).orElse(null);
 
 		if (usuario == null) {
 			return null;

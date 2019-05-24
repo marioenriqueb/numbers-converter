@@ -15,13 +15,13 @@ public class UserAdapter extends Adapter<User, UserDto> {
         }
 
         User entity = new User();
-        entity.setId(dto.getId());
-        entity.setNombre(dto.getNombre());
+        entity.setUserName(dto.getNombre());
         entity.setPassword(dto.getPassword());
 
         dto.getPermisos().forEach(perm -> {
             UserPermission permission = new UserPermission();
             permission.setPermission(perm);
+            permission.setUserName(dto.getNombre());
             entity.getPermisos().add(permission);
         });
 
@@ -35,8 +35,7 @@ public class UserAdapter extends Adapter<User, UserDto> {
         }
 
         UserDto dto = new UserDto();
-        dto.setId(entity.getId());
-        dto.setNombre(entity.getNombre());
+        dto.setNombre(entity.getUserName());
 
         entity.getPermisos().forEach(perm -> dto.getPermisos().add(perm.getPermission()));
 

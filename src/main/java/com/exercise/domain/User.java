@@ -15,33 +15,21 @@ import java.util.List;
 public class User implements Serializable {
 
     @Id
-    @GeneratedValue
-    @Column(name = "ID")
-    private Long id;
-
-    @Column(name = "NOMBRE", nullable = false, unique = true)
-    private String nombre;
+    @Column(name = "USERNAME", nullable = false, unique = true)
+    private String userName;
 
     @Column(name = "PASSWORD")
     private String password;
 
-    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "id.userName", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<UserPermission> permisos = new ArrayList<>();
 
-    public Long getId() {
-        return id;
+    public String getUserName() {
+        return userName;
     }
 
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getNombre() {
-        return nombre;
-    }
-
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
+    public void setUserName(String userName) {
+        this.userName = userName;
     }
 
     public String getPassword() {

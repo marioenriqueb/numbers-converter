@@ -6,15 +6,13 @@ import com.exercise.exception.NumberConvertException;
 import java.util.List;
 
 public interface UserService {
-    UserDto findById(Long userId);
-
-    UserDto findByName(String name);
+    UserDto findByUserName(String name);
 
     UserDto create(UserDto dto);
 
     UserDto update(UserDto dto);
 
-    void delete(Long userId);
+    void delete(String userName);
 
     List<UserDto> findAll();
 

@@ -9,7 +9,7 @@ import java.util.Optional;
 
 @Repository
 @Transactional
-public interface UserDao extends JpaRepository<User, Long> {
+public interface UserDao extends JpaRepository<User, String> {
 
-    Optional<User> findByNombre(String name);
+    Optional<User> findByUserName(String userName);
 }

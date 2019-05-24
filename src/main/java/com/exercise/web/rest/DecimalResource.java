@@ -20,7 +20,7 @@ public class DecimalResource implements NumberConverterResoruce {
 
     private final Logger log = LoggerFactory.getLogger(DecimalResource.class);
     
-    @Autowired
+    //@Autowired
     private NumberConverterService service;
 
     @Override

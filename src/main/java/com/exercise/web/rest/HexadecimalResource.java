@@ -20,7 +20,7 @@ public class HexadecimalResource implements NumberConverterResoruce {
 
     private final Logger log = LoggerFactory.getLogger(HexadecimalResource.class);
     
-    @Autowired
+    //@Autowired
     private NumberConverterService service;
 
     @Override
