@@ -34,7 +34,7 @@ public class DecimalNumberUtils {
 		Long number = null;
 
 		if (DECIMAL_PETTERN.matcher(value).matches()) {
-			number = Long.parseLong(value, 10);;
+			number = Long.parseLong(value, 10);
 		}
 
 		return number;

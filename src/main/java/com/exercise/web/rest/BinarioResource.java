@@ -2,6 +2,7 @@ package com.exercise.web.rest;
 
 import com.exercise.exception.NumberConvertException;
 import com.exercise.service.ConverterService;
+import com.exercise.web.response.ConverterResponse;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,34 +24,34 @@ public class BinarioResource implements ConverterResource {
     private ConverterService service;
 
     @Override
-    @GetMapping("/to/binario")
-    public ResponseEntity<String> toBinario(String number) throws NumberConvertException {
+    @GetMapping("/to/binario/{number}")
+    public ResponseEntity<ConverterResponse> toBinario(@PathVariable("number") String number) throws NumberConvertException {
         log.debug("REST request to get status");
-        String response = service.binarioToBinario(number);
+        ConverterResponse response = service.binarioToBinario(number);
         return ResponseEntity.status(HttpStatus.CREATED).body(response);
     }
 
     @Override
-    @GetMapping("/to/decimal")
-    public ResponseEntity<String> toDecimal(String number) throws NumberConvertException {
+    @GetMapping("/to/decimal/{number}")
+    public ResponseEntity<ConverterResponse> toDecimal(@PathVariable("number") String number) throws NumberConvertException {
         log.debug("REST request to get status");
-        String response = service.binarioToDecimal(number);
+        ConverterResponse response = service.binarioToDecimal(number);
         return ResponseEntity.status(HttpStatus.CREATED).body(response);
     }
 
     @Override
-    @GetMapping("/to/hexa")
-    public ResponseEntity<String> toHexadecimal(String number) throws NumberConvertException {
+    @GetMapping("/to/hexa/{number}")
+    public ResponseEntity<ConverterResponse> toHexadecimal(@PathVariable("number") String number) throws NumberConvertException {
         log.debug("REST request to get status");
-        String response = service.binarioToHexa(number);
+        ConverterResponse response = service.binarioToHexa(number);
         return ResponseEntity.status(HttpStatus.CREATED).body(response);
     }
 
     @Override
-    @GetMapping("/to/romano")
-    public ResponseEntity<String> toRomano(String number) throws NumberConvertException {
+    @GetMapping("/to/romano/{number}")
+    public ResponseEntity<ConverterResponse> toRomano(@PathVariable("number") String number) throws NumberConvertException {
         log.debug("REST request to get status");
-        String response = service.binarioToRomano(number);
+        ConverterResponse response = service.binarioToRomano(number);
         return ResponseEntity.status(HttpStatus.CREATED).body(response);
     }
 }

@@ -1,20 +1,21 @@
 package com.exercise.service;
 
 import com.exercise.exception.NumberConvertException;
+import com.exercise.web.response.ConverterResponse;
 
 public interface ConverterService {
-    String hexaToBinario(String number) throws NumberConvertException;
-    String hexaToHexa(String number) throws NumberConvertException;
-    String hexaToRomano(String number) throws NumberConvertException;
-    String hexaToDecimal(String number) throws NumberConvertException;
+    ConverterResponse hexaToBinario(String number) throws NumberConvertException;
+    ConverterResponse hexaToHexa(String number) throws NumberConvertException;
+    ConverterResponse hexaToRomano(String number) throws NumberConvertException;
+    ConverterResponse hexaToDecimal(String number) throws NumberConvertException;
 
-    String binarioToBinario(String number) throws NumberConvertException;
-    String binarioToHexa(String number) throws NumberConvertException;
-    String binarioToRomano(String number) throws NumberConvertException;
-    String binarioToDecimal(String number) throws NumberConvertException;
+    ConverterResponse binarioToBinario(String number) throws NumberConvertException;
+    ConverterResponse binarioToHexa(String number) throws NumberConvertException;
+    ConverterResponse binarioToRomano(String number) throws NumberConvertException;
+    ConverterResponse binarioToDecimal(String number) throws NumberConvertException;
 
-    String decimalToBinario(String number) throws NumberConvertException;
-    String decimalToHexa(String number) throws NumberConvertException;
-    String decimalToRomano(String number) throws NumberConvertException;
-    String decimalToDecimal(String number) throws NumberConvertException;
+    ConverterResponse decimalToBinario(String number) throws NumberConvertException;
+    ConverterResponse decimalToHexa(String number) throws NumberConvertException;
+    ConverterResponse decimalToRomano(String number) throws NumberConvertException;
+    ConverterResponse decimalToDecimal(String number) throws NumberConvertException;
 }

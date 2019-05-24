@@ -1,8 +1,10 @@
 package com.exercise.service.impl;
 
+import com.exercise.domain.enumeration.Permission;
 import com.exercise.service.ConverterService;
 import com.exercise.service.utils.DecimalNumberUtils;
 import com.exercise.service.utils.RomanNumberUtils;
+import com.exercise.web.response.ConverterResponse;
 import org.springframework.stereotype.Component;
 
 import com.exercise.exception.NumberConvertException;
@@ -11,75 +13,87 @@ import com.exercise.exception.NumberConvertException;
 public class ConverterServiceImpl implements ConverterService {
 
 	@Override
-	public String hexaToBinario(String number) throws NumberConvertException {
+	public ConverterResponse hexaToBinario(String number) throws NumberConvertException {
 		Long value = DecimalNumberUtils.hexaToDecimal(number);
-		return toBinario(value);
+		String result = toBinario(value);
+		return new ConverterResponse(number, result, Permission.BINARIO);
 	}
 
 	@Override
-	public String hexaToHexa(String number) throws NumberConvertException {
+	public ConverterResponse hexaToHexa(String number) throws NumberConvertException {
 		Long value = DecimalNumberUtils.hexaToDecimal(number);
-		return toHexa(value);
+		String result = toHexa(value);
+		return new ConverterResponse(number, result, Permission.HEXADECIMAL);
 	}
 
 	@Override
-	public String hexaToRomano(String number) throws NumberConvertException {
+	public ConverterResponse hexaToRomano(String number) throws NumberConvertException {
 		Long value = DecimalNumberUtils.hexaToDecimal(number);
-		return toRomano(value);
+		String result = toRomano(value);
+		return new ConverterResponse(number, result, Permission.ROMANO);
 	}
 
 	@Override
-	public String hexaToDecimal(String number) throws NumberConvertException {
+	public ConverterResponse hexaToDecimal(String number) throws NumberConvertException {
 		Long value = DecimalNumberUtils.hexaToDecimal(number);
-		return toDecimal(value);
+		String result = toDecimal(value);
+		return new ConverterResponse(number, result, Permission.DECIMAL);
 	}
 
 	@Override
-	public String binarioToBinario(String number) throws NumberConvertException {
+	public ConverterResponse binarioToBinario(String number) throws NumberConvertException {
 		Long value = DecimalNumberUtils.binaryToDecimal(number);
-		return toBinario(value);
+		String result = toBinario(value);
+		return new ConverterResponse(number, result, Permission.BINARIO);
 	}
 
 	@Override
-	public String binarioToHexa(String number) throws NumberConvertException {
+	public ConverterResponse binarioToHexa(String number) throws NumberConvertException {
 		Long value = DecimalNumberUtils.binaryToDecimal(number);
-		return toHexa(value);
+		String result = toHexa(value);
+		return new ConverterResponse(number, result, Permission.HEXADECIMAL);
 	}
 
 	@Override
-	public String binarioToRomano(String number) throws NumberConvertException {
+	public ConverterResponse binarioToRomano(String number) throws NumberConvertException {
 		Long value = DecimalNumberUtils.binaryToDecimal(number);
-		return toRomano(value);
+		String result = toRomano(value);
+		return new ConverterResponse(number, result, Permission.ROMANO);
 	}
 
 	@Override
-	public String binarioToDecimal(String number) throws NumberConvertException {
+	public ConverterResponse binarioToDecimal(String number) throws NumberConvertException {
 		Long value = DecimalNumberUtils.binaryToDecimal(number);
-		return toDecimal(value);
+		String result = toDecimal(value);
+		return new ConverterResponse(number, result, Permission.DECIMAL);
 	}
 
 	@Override
-	public String decimalToBinario(String number) throws NumberConvertException {
+	public ConverterResponse decimalToBinario(String number) throws NumberConvertException {
 		Long value = DecimalNumberUtils.stringToDecimal(number);
-		return toBinario(value);
+		String result = toBinario(value);
+		return new ConverterResponse(number, result, Permission.BINARIO);
 	}
 
 	@Override
-	public String decimalToHexa(String number) throws NumberConvertException {
+	public ConverterResponse decimalToHexa(String number) throws NumberConvertException {
 		Long value = DecimalNumberUtils.stringToDecimal(number);
-		return toHexa(value);
+		String result = toHexa(value);
+		return new ConverterResponse(number, result, Permission.HEXADECIMAL);
 	}
 
 	@Override
-	public String decimalToRomano(String number) throws NumberConvertException {
+	public ConverterResponse decimalToRomano(String number) throws NumberConvertException {
 		Long value = DecimalNumberUtils.stringToDecimal(number);
-		return toRomano(value);
+		String result = toRomano(value);
+		return new ConverterResponse(number, result, Permission.ROMANO);
 	}
 
 	@Override
-	public String decimalToDecimal(String number) throws NumberConvertException {
+	public ConverterResponse decimalToDecimal(String number) throws NumberConvertException {
 		Long value = DecimalNumberUtils.stringToDecimal(number);
-		return toDecimal(value);
+		String result = toDecimal(value);
+		return new ConverterResponse(number, result, Permission.DECIMAL);
 	}
 
 	private String toBinario(Long value) throws NumberConvertException {
