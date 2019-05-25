@@ -36,8 +36,8 @@ To create, search, modify or delete an user, we can use the user resourse end-po
  
 - create: `POST /api/user/`
 
-Request body: 
-{"nombre", "password", "permisos" : [...]}
+    Request body: 
+    {"nombre", "password", "permisos" : [...]}
 
 - delete: `DELETE /api/user/{username}`
 
@@ -47,10 +47,10 @@ Request body:
 
 - update: `PUT /api/user/`
 
-Request body: 
-{"nombre", "password", "permisos" : [...]}
+    Request body: 
+    {"nombre", "password", "permisos" : [...]}
 
-#Tests
+# Tests
 Some java tests for numbers conversions and user services were created. 
 
 There is also a file called **numbers-converter.json** inside the folder **test/resources**, that could be used to test the different API end-points from any Rest client app.
