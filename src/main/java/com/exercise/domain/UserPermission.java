@@ -19,6 +19,12 @@ public class UserPermission implements Serializable {
         this.id = new PermissionId();
     }
 
+    public UserPermission(String userName, Permission permission) {
+        this.id = new PermissionId();
+        this.setUserName(userName);
+        this.setPermission(permission);
+    }
+
     public PermissionId getId() {
         return id;
     }

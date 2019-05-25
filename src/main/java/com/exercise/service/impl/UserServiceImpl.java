@@ -3,14 +3,17 @@ package com.exercise.service.impl;
 import com.exercise.adapter.UserAdapter;
 import com.exercise.dao.UserDao;
 import com.exercise.domain.User;
+import com.exercise.domain.UserPermission;
 import com.exercise.dto.UserDto;
 import com.exercise.exception.NumberConvertException;
 import com.exercise.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Component
 public class UserServiceImpl implements UserService {
@@ -37,7 +40,11 @@ public class UserServiceImpl implements UserService {
 		if (dto.getNombre() != null) {
 			User user = dao.findById(dto.getNombre()).orElse(null);
 			if (user != null) {
-				user.setUserName(dto.getNombre());
+				List<UserPermission> permissions = dto.getPermisos().stream()
+						.map(permission -> new UserPermission(user.getUserName(), permission))
+						.collect(Collectors.toList());
+				user.setPermisos(permissions);
+
 				dao.save(user);
 				return adapter.toDto(user);
 			}
