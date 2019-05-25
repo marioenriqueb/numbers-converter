@@ -49,6 +49,23 @@ public class UserServiceTest extends BaseTest {
         Assert.assertEquals(3, dto.getPermisos().size());
     }
 
+    public void updatePasswordTest() throws NumberConvertException {
+        // Before
+        String newPassword = TestUtils.PASSWORD + "_upd";
+        UserDto dto = service.create(TestUtils.createUserDto());
+        dto.getPermisos().add(Permission.DECIMAL);
+        dto.setPassword(newPassword);
+
+        // Test
+        service.update(dto);
+
+        // After
+        UserDto actual = service.login(TestUtils.USER_NAME);
+        Assert.assertEquals(actual.getNombre(), dto.getNombre());
+        Assert.assertEquals(actual.getPassword(), newPassword);
+        Assert.assertEquals(3, dto.getPermisos().size());
+    }
+
     @Test
     public void updateDeletePermissionTest() throws NumberConvertException {
         // Before

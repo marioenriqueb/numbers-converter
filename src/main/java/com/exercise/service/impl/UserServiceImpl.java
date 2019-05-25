@@ -40,6 +40,7 @@ public class UserServiceImpl implements UserService {
 		if (dto.getNombre() != null) {
 			User user = dao.findById(dto.getNombre()).orElse(null);
 			if (user != null) {
+				user.setPassword(dto.getPassword());
 				List<UserPermission> permissions = dto.getPermisos().stream()
 						.map(permission -> new UserPermission(user.getUserName(), permission))
 						.collect(Collectors.toList());

@@ -22,13 +22,33 @@ Because of that we created three resources: one for each kind of number represen
 
 For security reasons: the user must be allowed to covert a number to a representation. For example: if the user A wants to convert a number with x respresentation to hexadecimal, it must have HEXADECIMAL permission in its permissions. 
 
-# end-points
+# conversion end-points
 
 **from**: Original number representation (`binario`, `decimal`, `hexa`)
 
 **to**: destination number representation (`binario`, `decimal`, `hexa`, `romano`)
  
-`api/<from>/to/<to>/{number}`
+`GET api/<from>/to/<to>/{number}`
+
+# conversion end-points
+
+To create, search, modify or delete an user, we can use the user resourse end-points.
+ 
+- create: `POST /api/user/`
+
+Request body: 
+{"nombre", "password", "permisos" : [...]}
+
+- delete: `DELETE /api/user/{username}`
+
+- find: `GET /api/user/{username}`
+
+- find all: `GET /api/user/all`
+
+- update: `PUT /api/user/`
+
+Request body: 
+{"nombre", "password", "permisos" : [...]}
 
 #Tests
 Some java tests for numbers conversions and user services were created. 
