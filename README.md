@@ -30,7 +30,7 @@ For security reasons: the user must be allowed to covert a number to a represent
  
 `GET api/<from>/to/<to>/{number}`
 
-# conversion end-points
+# users end-points
 
 To create, search, modify or delete an user, we can use the user resourse end-points.
  
