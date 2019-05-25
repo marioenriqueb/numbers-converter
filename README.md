@@ -16,7 +16,7 @@ During the application deploy a default user **master** with master permissions 
 
 
 # Rest
-We assume that a number would have the same representation digits in different systems, for example the number 10. The number 10 is the representation for 2 in the binary system, for 10 in the decimal system and for 16 in the hexadecimal system. 
+We know a number can have the same representation digits in different systems, for example the number 10. The number 10 is the representation for 2 in the binary system, for 10 in the decimal system and for 16 in the hexadecimal system.
 
 Because of that we created three resources: one for each kind of number representation for the input number: binary, decimal or hexadecimal. Each resource has four conversion methods: to-binary, to-decimal, to-hexadecimal and to-roman. 
 
