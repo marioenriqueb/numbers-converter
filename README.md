@@ -15,14 +15,14 @@ The app uses the framework H2 to persist the users data in memory, and the JPA f
 During the application deploy a default user **master** with master permissions **MASTER**.
 
 
-#Rest
+# Rest
 We assume that a number would have the same representation digits in different systems, for example the number 10. The number 10 is the representation for 2 in the binary system, for 10 in the decimal system and for 16 in the hexadecimal system. 
 
 Because of that we created three resources: one for each kind of number representation for the input number: binary, decimal or hexadecimal. Each resource has four conversion methods: to-binary, to-decimal, to-hexadecimal and to-roman. 
 
 For security reasons: the user must be allowed to covert a number to a representation. For example: if the user A wants to convert a number with x respresentation to hexadecimal, it must have HEXADECIMAL permission in its permissions. 
 
-#end-points
+# end-points
 
 **from**: Original number representation (`binario`, `decimal`, `hexa`)
 
